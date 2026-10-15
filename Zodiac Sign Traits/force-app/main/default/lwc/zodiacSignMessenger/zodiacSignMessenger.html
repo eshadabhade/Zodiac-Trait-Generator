@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Find Your Zodiac Match">
+        <lightning-input class="slds-m-around_medium" value={userName} onchange={handleNameChange} type="text"
+            label="Name" required>Name</lightning-input>
+        <lightning-input class="slds-m-around_medium" value={birthDate} onchange={handleDateChange} type="date"
+            label="Dob" required>Date of Birth</lightning-input>
+
+        <lightning-button variant="brand" label="Hit it" title="Hit it" onclick={handleSubmit}
+            class="slds-align_absolute-center slds-m-around_medium">Hit it</lightning-button>
+
+        <template lwc:if={showResults}>
+            <div class="slds-align_absolute-center">
+                <lightning-card class="slds-align_absolute-center" variant="Narrow" title="Here's a bit about you">
+                    {userProfile.sign} {userProfile.emoji} <br />
+                    {userProfile.trait}
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+</template>
